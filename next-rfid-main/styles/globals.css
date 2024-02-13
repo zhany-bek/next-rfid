@@ -93,6 +93,10 @@
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
 
+.sm_head_text {
+  @apply mt-5 text-2xl font-extrabold leading-[1.15] text-black;
+}
+
 .eco_green_gradient {
   @apply bg-gradient-to-r from-green-600 via-green-500 to-green-600 bg-clip-text text-transparent;
 }
@@ -126,7 +130,12 @@
 }
 
 .prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+  @apply grid mt-10 px-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 justify-center; /* Grid layout with centering */
+  /*
+  @apply py-8;
+  @apply flex flex-wrap justify-start;
+  @apply space-y-6 py-8 columns-3 sm:columns-2 sm:gap-6 xl:columns-3;
+  */
 }
 
 /* Feed Component */
@@ -159,6 +168,14 @@
 /* PromptCard Component */
 .prompt_card {
   @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  
+  overflow: hidden; /* Prevent text overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-overflow: ellipsis; /* Display ellipsis for overflow text */
+}
+
+.promp_text {
+  @apply truncate;
 }
 
 .flex-center {

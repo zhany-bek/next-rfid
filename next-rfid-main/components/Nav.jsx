@@ -2,26 +2,27 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-import {useAuthState} from 'react-firebase-hooks/auth'
-import {auth} from '@firebase/config'
-import { signOut } from 'firebase/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@firebase/config";
+import { signOut } from "firebase/auth";
 import { sign } from "crypto";
 
 const Nav = () => {
-  const [user] = useAuthState(auth);
-  const router = useRouter()
-  const userSession = sessionStorage.getItem('user');
-
-
-  //const isUserLoggedIn = true;
-
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [userSession, setUserSession] = useState(null);
+
+  const [user] = useAuthState(auth);
+  const router = useRouter();
+
+  useEffect(() => {
+    setUserSession(sessionStorage.getItem("user"));
+  }, []);
 
   const handleSignInClick = () => {
-    router.push('/sign-in');
+    router.push("/sign-in");
   };
 
   return (
@@ -35,7 +36,7 @@ const Nav = () => {
           className="object-contain"
         />
       </Link>
-      
+
       {/* Desktop Navigation */}
       <div className="sm:flex hidden">
         {user ? (
@@ -44,10 +45,14 @@ const Nav = () => {
               View Products
             </Link>
 
-            <button type="button" onClick={() => {
-                signOut(auth)
-                sessionStorage.removeItem('user')
-              }} className="outline_btn">
+            <button
+              type="button"
+              onClick={() => {
+                signOut(auth);
+                sessionStorage.removeItem("user");
+              }}
+              className="outline_btn"
+            >
               Sign Out
             </button>
 
@@ -109,7 +114,7 @@ const Nav = () => {
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut(auth);
-                    sessionStorage.removeItem('user')
+                    sessionStorage.removeItem("user");
                   }}
                   className="mt-5 w-full black_btn"
                 >

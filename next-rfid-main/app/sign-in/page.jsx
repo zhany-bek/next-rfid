@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@firebase/config";
 import { useRouter } from "next/navigation";
@@ -10,6 +10,22 @@ const SignIn = () => {
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
+
+  const buttonRef = useRef(null)
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        buttonRef.current.click();
+      }
+    };
+    document.addEventListener('keypress', handleKeyPress);
+    return () => {
+      document.removeEventListener('keypress', handleKeyPress);
+    };
+  }, []);
+  
 
   const handleSignIn = async () => {
     try {
@@ -55,6 +71,7 @@ const SignIn = () => {
         className="form_input border border-blue-300"
       />
       <button
+        ref={buttonRef}
         type="submit"
         onClick={handleSignIn}
         className="green_btn m-5"

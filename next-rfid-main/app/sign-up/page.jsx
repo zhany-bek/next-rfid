@@ -1,13 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@firebase/config";
+
+import Link from "next/link";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
+
+  const buttonRef = useRef(null)
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        buttonRef.current.click();
+      }
+    };
+    document.addEventListener('keypress', handleKeyPress);
+    return () => {
+      document.removeEventListener('keypress', handleKeyPress);
+    };
+  }, []);
 
   const handleSignUp = async () => {
     try {
@@ -48,6 +65,11 @@ const SignUp = () => {
       >
         Sign Up
       </button>
+
+      <p className="desc text-center">Have an account?</p>
+      <Link href="/sign-in" className="black_btn m-2">
+        Sign In
+      </Link>
     </section>
   );
 };
