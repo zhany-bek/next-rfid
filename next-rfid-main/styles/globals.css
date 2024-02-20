@@ -81,6 +81,10 @@
   @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:border-green-600 hover:bg-green-600 hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
+.edit_btn {
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:border-green-600 hover:bg-green-600 hover:text-white text-center text-sm font-inter flex items-start justify-center;
+}
+
 .green_btn {
   @apply rounded-full border border-green-600 bg-green-600 py-2 px-8 text-white transition-all hover:border-green-500 hover:bg-green-500 hover:text-white text-center text-lg font-bold flex items-center justify-center;
 }
@@ -95,6 +99,14 @@
 
 .sm_head_text {
   @apply mt-5 text-2xl font-extrabold leading-[1.15] text-black;
+}
+
+.green_sm_head_text {
+  @apply text-2xl font-extrabold leading-[1.15] text-green-600;
+}
+
+.feed_sm_head_text {
+  @apply text-2xl font-extrabold leading-[1.15] text-green-500;
 }
 
 .eco_green_gradient {
@@ -115,6 +127,10 @@
 
 .desc {
   @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.prod_desc {
+  @apply mt-1 text-lg text-gray-600 sm:text-xl max-w-2xl;
 }
 
 .search_input {
@@ -138,9 +154,13 @@
   */
 }
 
+.feed_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mt-5 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
 }
 
 /* Form Component */
@@ -172,6 +192,10 @@
   overflow: hidden; /* Prevent text overflow */
   white-space: nowrap; /* Prevent text wrapping */
   text-overflow: ellipsis; /* Display ellipsis for overflow text */
+}
+
+.feed_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
 }
 
 .promp_text {

@@ -1,5 +1,5 @@
 "use client"
-//import Feed from "@components/Feed";
+import Feed from "@components/Feed";
 
 const Home = () => {
   return (
@@ -14,6 +14,7 @@ const Home = () => {
       <p className="desc text-center">
         Efficient RFID Solution
       </p>
+      <Feed />
     </section>
   );
 };

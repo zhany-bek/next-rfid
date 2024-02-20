@@ -41,7 +41,7 @@ const Nav = () => {
       <div className="sm:flex hidden">
         {user ? (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/view-products" className="black_btn">
+            <Link href="/products" className="black_btn">
               View Products
             </Link>
 
