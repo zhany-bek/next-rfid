@@ -17,6 +17,7 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "@firebase/config";
+import { rtdb } from "@firebase/config";
 
 const Products = () => {
   const [items, setItems] = useState([]);
