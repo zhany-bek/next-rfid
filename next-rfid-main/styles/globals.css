@@ -105,6 +105,11 @@
   @apply text-2xl font-extrabold leading-[1.15] text-green-600;
 }
 
+.green_smst_head_text {
+  @apply text-lg font-extrabold leading-[1.15] text-green-600;
+  font-size: 1.15rem;
+}
+
 .feed_sm_head_text {
   @apply text-2xl font-extrabold leading-[1.15] text-green-500;
 }
@@ -131,6 +136,11 @@
 
 .prod_desc {
   @apply mt-1 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.prod_smst_desc {
+  @apply mt-1 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  font-size: 1.1rem; /* Adjust the font size as needed */
 }
 
 .search_input {
@@ -192,6 +202,10 @@
   overflow: hidden; /* Prevent text overflow */
   white-space: nowrap; /* Prevent text wrapping */
   text-overflow: ellipsis; /* Display ellipsis for overflow text */
+}
+
+.item_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter w-full h-fit min-w-[360px];
 }
 
 .feed_card {
